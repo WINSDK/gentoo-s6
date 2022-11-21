@@ -1,0 +1,6 @@
+#!/bin/execlineb -P
+
+if -n { test -e / }
+    mount -o rw /
+
+# TODO: restart logging system after a remount

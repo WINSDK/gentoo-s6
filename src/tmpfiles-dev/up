@@ -1,0 +1,3 @@
+#!/bin/execlineb -P
+
+exec tmpfiles --prefix=/dev --create --boot

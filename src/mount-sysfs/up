@@ -1,0 +1,19 @@
+#!/bin/execlineb -P
+
+# Mount sysfs if /sys exists
+foreground {
+    if -n { mountpoint -q /sys }
+        mount -t sysfs sys /sys -o nosuid,noexec,nodev
+}
+
+# Mount security if they aren't yet mounted
+foreground {
+    if -nt { mountpoint -q /sys/kernel/security }
+        mount -t securityfs securityfs /sys/kernel/security
+}
+
+# Mount efivars if they aren't yet mounted
+foreground {
+    if -n { mountpoint -q /sys/firmware/efi/efivars }
+        mount -n -t efivarfs -o ro efivarfs /sys/firmware/efi/efivars
+}

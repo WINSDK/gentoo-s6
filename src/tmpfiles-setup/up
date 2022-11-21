@@ -1,0 +1,3 @@
+#!/bin/execlineb -P
+
+exec tmpfiles --exclude-prefix=/dev --create --remove --boot
