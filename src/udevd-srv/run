@@ -1,4 +1,3 @@
 #!/bin/execlineb -P
 
-fdmov -c 2 1
-exec /lib/systemd/systemd-udevd -D
+fdmov -c 2 1 exec /lib/systemd/systemd-udevd -D
